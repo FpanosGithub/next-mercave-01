@@ -7,23 +7,23 @@ export default function FichaVehiculo ({vehiculo}){
   return(
     <>
     {/* Div general */}
-    <div className="grid grid-cols-2 gap-1 past-sm:grid-cols-3 past-md:grid-cols-4 2xl:grid-cols-6 3xl:grid-cols-8 4xl:grid-cols-9">
+    <div className="grid grid-cols-2 gap-1 past-sm:grid-cols-3 past-md:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-8 4xl:grid-cols-9">
       
       {/* Div # 1 - Imagen + estado ocupa 2 cols */}
       <div className="flex justify-around align-middle col-span-2 rounded-md py-2 px-2 border border-slate-500 h-[12rem]">
-          <Image src = {`/imagenes/vehiculos/${vehiculo.tipo.imagen}`} alt = 'imagen vehículo' height = {220} width = {360} className="rounded-lg h-auto"/>
+          <Image src = {`/imagenes/vehiculos/${vehiculo.tipo.imagen}`} alt = 'imagen vehículo' height = {230} width = {360} className="rounded-lg h-auto"/>
 
       </div>
       
       {/* Div # 2 - Matrícula y Descripción*/}
       <div className="rounded-md px-4 py-4 border border-slate-500 h-[12rem]">
-        <div className="rounded-md py-1 px-1 h-16  text-lg font-extralight overflow-hidden text-center bg-slate-800 ">{vehiculo.matricula}</div>
+        <div className="rounded-md pt-2 px-1 h-16  text-lg font-extralight overflow-hidden text-center bg-slate-800 ">{vehiculo.matricula}</div>
         <div className="text-xs text-slate-300 mt-4">Tipo:</div>
         <div className="mt-2 p-1 h-16 overflow-hidden text-md font-light text-slate-400">{vehiculo.tipo.codigo}</div>
       </div>
 
-      {/* Div # 3 - Clase y Tipo*/}
-      <div className="rounded-md px-4 py-4 border border-slate-500 overflow-hidden  h-[12rem]">
+      {/* Div # 3 - Descripción*/}
+      <div className="rounded-md px-4 py-4 border border-slate-500 overflow-hidden h-[12rem] past-md:hidden 2xl:inline-block 2xl:col-span-2 3xl:hidden 4xl:inline-block 4xl:col-span-1">
         <div className="p-1 text-md font-light text-center text-slate-400">{vehiculo.descripcion}</div>
       </div>
 
