@@ -25,7 +25,7 @@ export default function FichaEje ({eje}){
         <div className="p-1 h-10 overflow-hidden text-md font-light text-slate-400">{eje.tipo_eje}</div>
         <div className="text-xs text-slate-300">Vehículo:</div>
         <Link className= "w-full h-10 flex justify-between text-lg font-extralight text-slate-400" href = {`/Vehiculos/${eje.vehiculo.id}`}> 
-          <div className="overflow-hidden text-md font-light text-slate-400">{eje.vehiculo.matricula}</div>
+          <div className="overflow-hidden h-10 text-md font-light text-slate-400">{eje.vehiculo.matricula}</div>
           <ArrowTopRightOnSquareIcon className="w-6 h-5 mt-1"/>
         </Link>
       </div>
