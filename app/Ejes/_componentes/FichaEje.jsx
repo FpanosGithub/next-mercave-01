@@ -20,9 +20,14 @@ export default function FichaEje ({eje}){
       
       {/* Div # 2 - Código y Versión y Descripción*/}
       <div className="rounded-md px-4 py-3 border border-slate-500 h-[12rem]">
-        <div className="rounded-md pt-4 px-1 h-20  text-lg font-extralight overflow-hidden text-center bg-slate-800 ">{eje.codigo}</div>
+        <div className="rounded-md pt-2 px-1 h-12  text-lg font-extralight overflow-hidden text-center bg-slate-800 ">{eje.codigo}</div>
         <div className="text-xs text-slate-300 mt-4">Versión:</div>
-        <div className="mt-2 p-1 h-16 overflow-hidden text-md font-light text-slate-400">{eje.tipo_eje}</div>
+        <div className="p-1 h-10 overflow-hidden text-md font-light text-slate-400">{eje.tipo_eje}</div>
+        <div className="text-xs text-slate-300">Vehículo:</div>
+        <Link className= "w-full h-10 flex justify-between text-lg font-extralight text-slate-400" href = {`/Vehiculos/${eje.vehiculo.id}`}> 
+          <div className="overflow-hidden text-md font-light text-slate-400">{eje.vehiculo.matricula}</div>
+          <ArrowTopRightOnSquareIcon className="w-6 h-5 mt-1"/>
+        </Link>
       </div>
 
       {/* Div # 3 - Owner/Keeper Fabricante/EEM*/}
@@ -69,32 +74,34 @@ export default function FichaEje ({eje}){
           <span 
             className={clsx('text-md font-light',
               {
-                'text-blue-500': (eje.tempa<=(-20)),
-                'text-blue-300': (eje.tempa>(-20)&&eje.tempa<=(-10)),
-                'text-blue-100': (eje.tempa>(-10)&&eje.tempa<=(-0)),
-                'text-red-50': (eje.tempa>(0)&&eje.tempa<=(10)),
-                'text-red-100': (eje.tempa>(10)&&eje.tempa<=(20)),
-                'text-red-200': (eje.tempa>(20)&&eje.tempa<=(30)),
-                'text-red-300': (eje.tempa>(30)&&eje.tempa<=(40)),
-                'text-red-400': (eje.tempa>(40)&&eje.tempa<=(50)),
-                'text-pink-500': (eje.tempa>(50)&&eje.tempa<=(60)),
-                'text-pink-700': (eje.tempa>(60)&&eje.tempa<=(70)),
+                'text-blue-600': (eje.tempa<=(-20)),
+                'text-blue-500': (eje.tempa>(-20)&&eje.tempa<=(-10)),
+                'text-blue-400': (eje.tempa>(-10)&&eje.tempa<=(-0)),
+                'text-teal-200': (eje.tempa>(0)&&eje.tempa<=(10)),
+                'text-emerald-200': (eje.tempa>(10)&&eje.tempa<=(20)),
+                'text-lime-300': (eje.tempa>(20)&&eje.tempa<=(30)),
+                'text-lime-400': (eje.tempa>(30)&&eje.tempa<=(40)),
+                'text-amber-300': (eje.tempa>(40)&&eje.tempa<=(50)),
+                'text-orange-300': (eje.tempa>(50)&&eje.tempa<=(60)),
+                'text-orange-400': (eje.tempa>(60)&&eje.tempa<=(70)),
+                'text-red-500': (eje.tempa>(70)),
               },
             )}>
              A:{eje.tempa.toFixed(1)}º
             </span>
           <span className={clsx('text-md font-light',
               {
-                'text-blue-500': (eje.tempb<=(-20)),
-                'text-blue-300': (eje.tempb>(-20)&&eje.tempa<=(-10)),
-                'text-blue-100': (eje.tempb>(-10)&&eje.tempa<=(-0)),
-                'text-red-50': (eje.tempb>(0)&&eje.tempa<=(10)),
-                'text-red-100': (eje.tempb>(10)&&eje.tempa<=(20)),
-                'text-red-200': (eje.tempb>(20)&&eje.tempa<=(30)),
-                'text-red-300': (eje.tempb>(30)&&eje.tempa<=(40)),
-                'text-red-400': (eje.tempb>(40)&&eje.tempa<=(50)),
-                'text-pink-500': (eje.tempb>(50)&&eje.tempa<=(60)),
-                'text-pink-700': (eje.tempb>(60)&&eje.tempa<=(70)),
+                'text-blue-600': (eje.tempb<=(-20)),
+                'text-blue-500': (eje.tempb>(-20)&&eje.tempb<=(-10)),
+                'text-blue-400': (eje.tempb>(-10)&&eje.tempb<=(-0)),
+                'text-teal-200': (eje.tempb>(0)&&eje.tempb<=(10)),
+                'text-emerald-200': (eje.tempb>(10)&&eje.tempb<=(20)),
+                'text-lime-300': (eje.tempb>(20)&&eje.tempb<=(30)),
+                'text-lime-400': (eje.tempb>(30)&&eje.tempb<=(40)),
+                'text-amber-300': (eje.tempb>(40)&&eje.tempb<=(50)),
+                'text-orange-300': (eje.tempb>(50)&&eje.tempb<=(60)),
+                'text-orange-400': (eje.tempb>(60)&&eje.tempb<=(70)),
+                'text-red-500': (eje.tempb>(70)),
               },
             )}>
             B:{eje.tempb.toFixed(1)}º

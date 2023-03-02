@@ -98,7 +98,7 @@ export default function FichaVehiculo ({vehiculo}){
         <div className="text-xs text-slate-300 mb-2">Ejes:</div>
         <div className="rounded-m py-1 px-4 h-32 bg-slate-900 ">
           {vehiculo.ejes.map((eje)=>{return(
-              <Link key={eje.id} className="mt-1 flex justify-between text-md font-light text-slate-400 overflow-hidden" href = '/Vehiculos'> 
+              <Link key={eje.id} className="mt-1 flex justify-between text-md font-light text-slate-400 overflow-hidden" href = {`/Ejes/${eje.id}`}> 
                 {eje.codigo} 
                 <ArrowTopRightOnSquareIcon className="w-6 h-5 ml-4"/>
               </Link>
