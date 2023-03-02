@@ -12,7 +12,7 @@ export default function MapaFlota ({vehiculos, hover, onHover}) {
   }
   let punto_purple = [0, 0]
   let codigo = ''
-  let imagen = 'vagones.jpg'
+  let imagen = ''
   let keeper = ''
   let descripcion = ''
   let en_servicio = true
@@ -22,6 +22,8 @@ export default function MapaFlota ({vehiculos, hover, onHover}) {
   let alarma = false
   let lw = 0
   let id_vehiculo = -1
+  let width_overlay = 'w-0'
+  let width_marker_overlay = 0
   if (hover !== -1)
         {
         vehiculos.forEach((vehiculo)=> {
@@ -38,6 +40,8 @@ export default function MapaFlota ({vehiculos, hover, onHover}) {
                 if (vehiculo.alarma){alarma = true}
                 lw = vehiculo.km_totales/1000
                 id_vehiculo = vehiculo.id
+                width_overlay = 'w-36'
+                width_marker_overlay = 40
             }
             })
         }
@@ -65,12 +69,12 @@ export default function MapaFlota ({vehiculos, hover, onHover}) {
             ('')
             ))}
         <Marker 
-          width={40} 
+          width={width_marker_overlay} 
           color = 'purple'
           anchor={punto_purple} 
           onClick={()=>handleClick(id_vehiculo)}/>
         <Overlay anchor={punto_purple}>
-            <div className="w-36 p-1 pb-2 bg-slate-700/90 shadow-xl rounded-md" onClick = {() => onHover(-1)}>
+            <div className={`${width_overlay} p-1 pb-2 bg-slate-700/90 shadow-xl rounded-md`} onClick = {() => onHover(-1)}>
               <Image src = {`/imagenes/vehiculos/${imagen}`} alt = '' height = {100} width = {160}/>
               <div className="text-center bg-slate-800/80 mt-1 rounded-lg">
                 {codigo}

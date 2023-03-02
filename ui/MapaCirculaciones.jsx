@@ -1,21 +1,8 @@
 'use client'
 import { Map, ZoomControl, Marker, Overlay } from "pigeon-maps";
 import { stamenToner } from 'pigeon-maps/providers';
-import MapaCirculacion from "./MapaCirculacion";
 
 export default function MapaCirculaciones ({circulaciones, select, onSelect, hover, onHover}) {
-  
-  if (select !== -1) {
-    let data_circulacion = circulaciones[0]
-    circulaciones.forEach((circulacion)=> {
-      if (select === circulacion.id) {data_circulacion = circulacion}
-      })
-    return (
-      <MapaCirculacion
-        circulacion = {data_circulacion}
-        onSelect = {onSelect}/>
-    )
-  }
   
   const checkDate = (date) => {
     const fecha = new Date(date)
@@ -112,22 +99,22 @@ export default function MapaCirculaciones ({circulaciones, select, onSelect, hov
             data.texto = 'Ayer'
             break
           case 2:
-            data.texto = '- de 7 días'
+            data.texto = 'Hace menos de 7 días'
             break
           case 3:
-            data.texto = '- de 14 días'
+            data.texto = 'Hace menos 14 días'
             break
           case 4:
-            data.texto = '- de 1 mes'
+            data.texto = 'Hace menos de 1 mes'
             break
           case 5:
-            data.texto = '- de 2 meses'
+            data.texto = 'Hace menos de 2 meses'
             break
           case 6:
-            data.texto = '- de 3 meses'
+            data.texto = 'Hace menos de 3 meses'
             break
           default:
-            data.texto = '+ de 3 meses'
+            data.texto = 'Hace más de 3 meses'
         }
         data.color = color(circulacion.dt_final)
         data.dia = circulacion.dt_final.slice(0,10)
@@ -140,7 +127,7 @@ export default function MapaCirculaciones ({circulaciones, select, onSelect, hov
   const overlay = data_overlay()
 
   return(
-    <div className="rounded-lg border border-slate-500 p-2 h-[38rem] 2xl:basis-2/3 2xl:h-full 2xl:mt-2">
+    <div className="rounded-lg border border-slate-500 p-2 h-[38rem]">
     <Map 
       provider={stamenToner}
       dprs={[1, 2]} 
@@ -164,7 +151,7 @@ export default function MapaCirculaciones ({circulaciones, select, onSelect, hov
         {(hover !== -1)?
           (<Overlay 
             anchor={overlay.anchor}>
-              <div  className='flex flex-col w-30 h-24 p-1 text-xs text-center border rounded-md bg-slate-600/80 border-slate-500 hover:cursor-zoom-out'
+              <div  className='flex flex-col w-36 h-30 p-1 text-xs text-center border rounded-md bg-slate-600/80 border-slate-500 hover:cursor-zoom-out'
                     onClick = {() => onHover(-1)}>
                 <div className='my-1'>Fin circulación:</div>
                 <div className='my-1'>{overlay.texto}</div>

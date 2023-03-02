@@ -1,7 +1,8 @@
 'use client'
 import {useState, useEffect} from "react"
-import MapaCirculaciones from "./MapaCirculaciones"
-import ListaCirculaciones from "./ListaCirculaciones"
+import MapaCirculaciones from "@/ui/MapaCirculaciones"
+import ListaCirculaciones from "@/ui/ListaCirculaciones"
+import MapaCirculacion from "@/ui/MapaCirculacion"
 
 export default function PanelCirculaciones ({circulaciones}) {
   const [select, setSelect] = useState(-1)
@@ -13,9 +14,33 @@ export default function PanelCirculaciones ({circulaciones}) {
   if (!hasMounted) {
     return null;
   }
-  return(
+  if (select !== -1) {
+    let circulacion = circulaciones[0]
+    circulaciones.forEach((obj)=> {if (select === obj.id) {circulacion = obj}})
+    return (
+    <>
+    <div className='text-lg text-gray-400 pt-6 pb-3'>Últimas Circulaciones del Vehículo</div>
+    <div className="grid gap-1 grid-cols-1 2xl:grid-cols-2">
+      <MapaCirculacion
+        circulacion = {circulacion}
+        onSelect = {setSelect}/>
+        
+      <ListaCirculaciones
+        circulaciones = {circulaciones} 
+        select = {select}
+        onSelect = {setSelect}
+        hover = {hover}
+        onHover = {setHover}/>
+    </div>
+    </>
+    )
+  }
 
-    <div className="mt-2 space-y-2 2xl:flex 2xl:space-x-4 2xl:h-[40rem]">
+  return(
+    <>
+    {/* Título Ficha */}
+    <div className='text-lg text-gray-400 pt-6 pb-3'>Últimas Circulaciones del Vehículo</div>
+    <div className="grid gap-1 grid-cols-1 2xl:grid-cols-2">
     
       <MapaCirculaciones
         circulaciones = {circulaciones} 
@@ -32,5 +57,6 @@ export default function PanelCirculaciones ({circulaciones}) {
         onHover = {setHover}/>
 
     </div>
-  )
+    </>
+  )  
 }

@@ -11,7 +11,7 @@ export default function ListaCirculaciones ({circulaciones, select, hover, onSel
     onHover(id_circulacion)
   }
   return(
-    <div className='p-2 overflow-y-scroll border border-slate-500 rounded-lg 2xl:basis-1/3'>
+    <div className='rounded-lg border border-slate-500 p-2'>
     <div className="table w-full 2xl:h-fit 2xl:max-h-full">
       <div className="table-header-group bg-slate-900">
           <div className="table-cell text-left pl-4">Día Inicio</div>

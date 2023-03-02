@@ -1,7 +1,9 @@
 'use client'
 import {useState, useEffect} from "react"
-import MapaCirculaciones from "./MapaCirculaciones"
-import ListaCirculaciones from "./ListaCirculaciones"
+import MapaCirculaciones from "@/ui/MapaCirculaciones"
+import ListaCirculaciones from "@/ui/ListaCirculaciones"
+import MapaCirculacion from "@/ui/MapaCirculacion"
+import GraficasCirculacion from "./GraficasCirculacion"
 
 export default function PanelCirculaciones ({circulaciones}) {
   const [select, setSelect] = useState(-1)
@@ -13,8 +15,35 @@ export default function PanelCirculaciones ({circulaciones}) {
   if (!hasMounted) {
     return null;
   }
+  if (select !== -1) {
+    let circulacion = circulaciones[0]
+    circulaciones.forEach((obj)=> {if (select === obj.id) {circulacion = obj}})
+    return (
+    <>
+    <div className='text-lg text-gray-400 pt-6 pb-3'>Últimas Circulaciones del Eje</div>
+    <div className="space-y-1 2xl:space-y-0 2xl:gap-1 2xl:grid 2xl:grid-cols-2 3xl:grid-cols-3">
+      <MapaCirculacion
+        circulacion = {circulacion}
+        onSelect = {setSelect}/>
+      <ListaCirculaciones
+        circulaciones = {circulaciones} 
+        select = {select}
+        onSelect = {setSelect}
+        hover = {hover}
+        onHover = {setHover}/>
+      <GraficasCirculacion
+        circulacion = {circulacion}/>
+   
+    </div>
+    </>
+    )
+  }
+
   return(
-    <div className="mt-6 space-y-2 2xl:flex 2xl:space-x-4 2xl:h-[40rem]">
+    <>
+    {/* Título Ficha */}
+    <div className='text-lg text-gray-400 pt-6 pb-3'>Últimas Circulaciones del Eje</div>
+    <div className="grid gap-1 grid-cols-1 2xl:grid-cols-2">
     
       <MapaCirculaciones
         circulaciones = {circulaciones} 
@@ -31,5 +60,6 @@ export default function PanelCirculaciones ({circulaciones}) {
         onHover = {setHover}/>
 
     </div>
-  )
+    </>
+  )  
 }

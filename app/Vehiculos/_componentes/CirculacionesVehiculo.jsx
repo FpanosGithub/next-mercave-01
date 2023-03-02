@@ -1,4 +1,4 @@
-import PanelCirculaciones from "./PanelCirculaciones";
+import PanelCirculaciones from "@/app/Vehiculos/_componentes/PanelCirculaciones";
 
 async function getCirculaciones(id) {
   const res = await fetch(`https://mercave-2301.azurewebsites.net/eventos/circulaciones_vehiculo_ampliadas/${id}`)
@@ -14,10 +14,6 @@ async function getCirculaciones(id) {
 export default async function CirculacionesVehiculo ({id_vehiculo}){
   const circulaciones = await getCirculaciones(id_vehiculo);
   return(
-    <>
-    {/* Título Ficha */}
-    <div className='text-lg text-gray-400 mt-6'>Últimas Circulaciones Vehículo</div>
-    <PanelCirculaciones circulaciones = {circulaciones}/>
-    </>
+      <PanelCirculaciones circulaciones = {circulaciones}/>
   )
 }

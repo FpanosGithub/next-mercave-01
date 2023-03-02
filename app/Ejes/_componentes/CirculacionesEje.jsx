@@ -1,7 +1,7 @@
 import PanelCirculaciones from "./PanelCirculaciones";
 
 async function getCirculaciones(id) {
-  const res = await fetch(`https://mercave-2301.azurewebsites.net/eventos/circulaciones_vehiculo_ampliadas/${id}`)
+  const res = await fetch(`https://mercave-2301.azurewebsites.net/eventos/circulaciones_eje_ampliadas/${id}`)
   // Recommendation: handle errors
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary

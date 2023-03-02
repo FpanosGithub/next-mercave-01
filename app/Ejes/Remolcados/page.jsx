@@ -13,7 +13,6 @@ async function getEjes() {
 
 export default async function Page() {
   const ejes = await getEjes();
-  console.log(ejes)
   return (
       <PanelEjes ejes = {ejes}/>
   )

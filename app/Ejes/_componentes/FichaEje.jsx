@@ -14,8 +14,7 @@ export default function FichaEje ({eje}){
       
       {/* Div # 1 - Imagen + estado ocupa 2 cols */}
       <div className="flex justify-around align-middle col-span-2 rounded-md py-1 border border-slate-500 h-[12rem]">
-          <Image src = {'/imagenes/ejes/eje.png'} alt = 'imagen eje EAVM' height = {250} width = {350} className="rounded-lg h-auto"/>
-
+          <Image src = {'/imagenes/ejes/eje.png'} alt = 'imagen eje EAVM' height = {250} width = {340} className="rounded-lg h-auto"/>
       </div>
       
       {/* Div # 2 - Código y Versión y Descripción*/}
@@ -25,7 +24,7 @@ export default function FichaEje ({eje}){
         <div className="p-1 h-10 overflow-hidden text-md font-light text-slate-400">{eje.tipo_eje}</div>
         <div className="text-xs text-slate-300">Vehículo:</div>
         <Link className= "w-full h-10 flex justify-between text-lg font-extralight text-slate-400" href = {`/Vehiculos/${eje.vehiculo.id}`}> 
-          <div className="overflow-hidden h-10 text-md font-light text-slate-400">{eje.vehiculo.matricula}</div>
+          <div className="overflow-hidden h-8 text-md font-light text-slate-400">{eje.vehiculo.matricula}</div>
           <ArrowTopRightOnSquareIcon className="w-6 h-5 mt-1"/>
         </Link>
       </div>
@@ -125,7 +124,7 @@ export default function FichaEje ({eje}){
     {/* Div # 7 - datos Mantenimiento*/}
     <div className="rounded-md px-4 border border-slate-500 h-[12rem]">
       <div className = 'flex justify-between'>
-        <div className="mt-2 text-slate-300">Mantenimiento:</div>
+        <div className="mt-2 text-slate-300">Mto.: </div>
         <Link className="mt-2 flex justify-between text-lg font-extralight text-slate-400" href = '/Ejes'> 
           <ArrowTopRightOnSquareIcon className="w-6 h-5"/>
         </Link>

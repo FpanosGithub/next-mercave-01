@@ -31,15 +31,12 @@ export async function generateStaticParams() {
 
 export default async function Page({params}) {
   const eje = await getEje(params.eje);
-  console.log(eje)
   return (
     <>
     <FichaEje eje = {eje}/>
-    {/* 
-    <Suspense fallback = {<p>cargando últimas 5 circulaciones del eje: {eje.id}...........</p>}>
+    <Suspense fallback = {<p>cargando últimas circulaciones del eje: {eje.id}...........</p>}>
       <CirculacionesEje id_eje = {eje.id}/>
     </Suspense>
-    */}
     </>
   )
 }

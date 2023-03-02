@@ -13,7 +13,7 @@ export default function FichaVehiculo ({vehiculo}){
       
       {/* Div # 1 - Imagen + estado ocupa 2 cols */}
       <div className="flex justify-around align-middle col-span-2 rounded-md py-2 px-2 border border-slate-500 h-[12rem]">
-          <Image src = {`/imagenes/vehiculos/${vehiculo.tipo.imagen}`} alt = 'imagen vehículo' height = {230} width = {360} className="rounded-lg h-auto"/>
+          <Image src = {`/imagenes/vehiculos/${vehiculo.tipo.imagen}`} alt = 'imagen vehículo' height = {230} width = {350} className="rounded-lg h-auto"/>
 
       </div>
       
@@ -38,21 +38,21 @@ export default function FichaVehiculo ({vehiculo}){
       </div>
 
     {/* Div # 5 - Datos servicio*/}
-    <div className="rounded-md px-4 py-4 border border-slate-500 h-[12rem]">
-        <div className="text-xs text-slate-300">Servicio:</div>
-        <div className = 'flex justify-around mt-2 p-1 rounded-full border border-slate-500'>
+    <div className="rounded-md px-4 py-2 border border-slate-500 h-[12rem]">
+        <div className=" text-slate-300">Servicio:</div>
+        <div className = 'flex justify-around mt-2 p-0.5 rounded-full border border-slate-500'>
           {vehiculo.en_servicio?
               (<BoltIcon className="w-6 h-6 mx-auto text-green-500"/>)
             : (<BoltSlashIcon className="w-6 h-6 mx-auto text-red-500"/>)}
         </div>
-        <div className="mt-4 text-xs text-slate-300">Observaciones:</div>
-        <div className="mt-2 py-1 h-16 overflow-hidden text-md font-light  text-slate-400">{vehiculo.observaciones_servicio}</div> 
+        <div className="mt-3 text-xs text-slate-300">Observaciones:</div>
+        <div className="mt-2 h-20 overflow-hidden text-md font-light  text-slate-400">{vehiculo.observaciones_servicio}</div> 
     </div>
 
     {/* Div # 6 - datos Circulación*/}
-    <div className="rounded-md px-4 py-4 border border-slate-500 h-[12rem]">
-        <div className="text-xs text-slate-300">Circulación:</div>
-        <div className = 'flex justify-evenly mt-2 p-1 rounded-full border border-slate-500'>
+    <div className="rounded-md px-4 py-2 border border-slate-500 h-[12rem]">
+        <div className=" text-slate-300">Circulación:</div>
+        <div className = 'flex justify-evenly mt-2 p-0.5 rounded-full border border-slate-500'>
         {vehiculo.en_circulacion?
               (<PlayIcon className="w-6 h-6 mx-auto text-green-500"/>)
             : (<PauseIcon className="w-6 h-6 mx-auto text-red-500"/>)}
@@ -63,8 +63,8 @@ export default function FichaVehiculo ({vehiculo}){
               (<RssIcon className="w-6 h-6 mx-auto text-green-500"/>)
             : (<WifiIcon className="w-6 h-6 mx-auto text-red-500"/>)}
         </div>
-        <div className="mt-4 text-xs text-slate-300">KM realizados:</div>
-        <div className="mt-2 py-1 h-10 text-md font-light  text-slate-400 overflow-hidden">{Math.round(vehiculo.km_totales).toLocaleString('fr')} km</div>
+        <div className="mt-3 text-xs text-slate-300">KM realizados:</div>
+        <div className="py-1 h-10 text-lg font-light  text-slate-400 overflow-hidden">{Math.round(vehiculo.km_totales).toLocaleString('fr')} km</div>
         <div className="flex justify-between">
           <div className='text-xs  text-slate-300 pt-1'>Nudo ferroviario:</div>
           {vehiculo.en_nudo?
@@ -77,7 +77,7 @@ export default function FichaVehiculo ({vehiculo}){
     {/* Div # 7 - datos Mantenimiento*/}
     <div className="rounded-md px-4 border border-slate-500 h-[12rem]">
       <div className = 'flex justify-between'>
-        <div className="mt-4 text-xs text-slate-300">Mantenimiento:</div>
+        <div className="mt-2 text-slate-300">Mto.:</div>
         <Link className="mt-2 flex justify-between text-lg font-extralight text-slate-400" href = '/Vehiculos'> 
           <ArrowTopRightOnSquareIcon className="w-6 h-5"/>
         </Link>
@@ -86,8 +86,11 @@ export default function FichaVehiculo ({vehiculo}){
         {vehiculo.en_mantenimiento?
           (<WrenchIcon className="w-6 h-6 mx-auto text-green-500"/>)
         : (<WrenchIcon className="w-6 h-6 mx-auto text-slate-500"/>)}
+        {vehiculo.alarma_mantenimiento?
+          (<BellAlertIcon className="w-6 h-6 mx-auto text-red-500"/>)
+        : (<BellAlertIcon className="w-6 h-6 mx-auto text-slate-500"/>)}
       </div>
-      <div className="mt-2 text-xs text-slate-300">Último Mto:</div>
+      <div className="mt-3 text-xs text-slate-300">Último Mto:</div>
       <div className="py-1 h-10 overflow-hidden text-md font-light  text-slate-400 ">{vehiculo.fecha_ultimo_mantenimiento}</div> 
       <div className="text-xs text-slate-300">Próximo Mto:</div>
       <div className="py-1 h-10 overflow-hidden text-md font-light  text-red-700">{vehiculo.fecha_proximo_mantenimiento}</div> 
