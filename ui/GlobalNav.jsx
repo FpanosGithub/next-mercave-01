@@ -43,7 +43,7 @@ export function GlobalNav() {
         type="button"
         className="group absolute right-0 top-0 flex h-14 items-center gap-x-2 px-4 lg:hidden"
         onClick={() => setMenuOpen(!menuOpened)}>
-        <div className="font-medium text-gray-100 group-hover:text-gray-400">
+        <div className="text-lg font-medium text-gray-100 group-hover:text-gray-400">
           Menu
         </div>
         {menuOpened ? (
@@ -63,7 +63,7 @@ export function GlobalNav() {
                 (
                 <div key={chapter.number}>
                   <div
-                    className="px-3 pb-1 group flex flex-row justify-start font-semibold tracking-wider text-gray-400/80 hover:cursor-pointer"
+                    className="px-3 pb-1 group flex flex-row justify-start tracking-wider text-gray-400/80 hover:cursor-pointer"
                     onClick={() => closeChapter(chapter.number)}>
                       <div className='w-56'>{chapter.title}</div>
                       <ChevronDownIcon className="block w-6 text-gray-400"/>
@@ -77,7 +77,7 @@ export function GlobalNav() {
                 (
                 <div key={chapter.number}>
                     <div
-                      className="px-3 group flex flex-row justify-start font-semibold tracking-wider text-gray-400/80 hover:cursor-pointer  hover:text-gray-300/80"
+                      className="px-3 group flex flex-row justify-start tracking-wider text-gray-400/80 hover:cursor-pointer  hover:text-gray-300/80"
                       onClick={() => openChapter(chapter.number)}>
                         <div className='w-56'>{chapter.title}</div>
                         <ChevronRightIcon className="block w-6 text-gray-400"/>

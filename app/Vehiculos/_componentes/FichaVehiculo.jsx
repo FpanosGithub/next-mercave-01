@@ -6,6 +6,8 @@ export default function FichaVehiculo ({vehiculo}){
 
   return(
     <>
+    {/* Título Ficha */}
+    <div className='text-lg text-gray-400 mb-2'>Ficha Vehículo</div>
     {/* Div general */}
     <div className="grid grid-cols-2 gap-1 past-sm:grid-cols-3 past-md:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-8 4xl:grid-cols-9">
       

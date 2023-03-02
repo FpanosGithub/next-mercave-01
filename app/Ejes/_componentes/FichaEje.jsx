@@ -6,33 +6,36 @@ import clsx from 'clsx';
 export default function FichaEje ({eje}){
   return(
     <>
+    {/* Título Ficha */}
+    <div className='text-lg text-gray-400 mb-2'>Ficha Eje</div>
+
     {/* Div general */}
     <div className="grid grid-cols-2 gap-1 past-sm:grid-cols-3 past-md:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-8 4xl:grid-cols-9">
       
       {/* Div # 1 - Imagen + estado ocupa 2 cols */}
-      <div className="flex justify-around align-middle col-span-2 rounded-md py-2 px-2 border border-slate-500 h-[12rem]">
-          <Image src = {'/imagenes/ejes/eje.png'} alt = 'imagen eje EAVM' height = {230} width = {320} className="rounded-lg h-auto"/>
+      <div className="flex justify-around align-middle col-span-2 rounded-md py-1 border border-slate-500 h-[12rem]">
+          <Image src = {'/imagenes/ejes/eje.png'} alt = 'imagen eje EAVM' height = {250} width = {350} className="rounded-lg h-auto"/>
 
       </div>
       
       {/* Div # 2 - Código y Versión y Descripción*/}
-      <div className="rounded-md px-4 py-4 border border-slate-500 h-[12rem]">
-        <div className="rounded-md pt-2 px-1 h-16  text-lg font-extralight overflow-hidden text-center bg-slate-800 ">{eje.codigo}</div>
-        <div className="text-xs text-slate-300 mt-6">Versión:</div>
+      <div className="rounded-md px-4 py-3 border border-slate-500 h-[12rem]">
+        <div className="rounded-md pt-4 px-1 h-20  text-lg font-extralight overflow-hidden text-center bg-slate-800 ">{eje.codigo}</div>
+        <div className="text-xs text-slate-300 mt-4">Versión:</div>
         <div className="mt-2 p-1 h-16 overflow-hidden text-md font-light text-slate-400">{eje.tipo_eje}</div>
       </div>
 
       {/* Div # 3 - Owner/Keeper Fabricante/EEM*/}
       <div className="rounded-md px-4 py-4 border border-slate-500 h-[12rem]">
           <div className="text-xs text-slate-300">Owner / Keeper:</div>
-          <div className="rounded-md mt-2 p-1 h-16 text-md font-light  text-slate-400">{eje.owner} / {eje.keeper}</div>
+          <div className="rounded-md mt-2 p-1 h-16 text-lg font-light  text-slate-400">{eje.owner} / {eje.keeper}</div>
           <div className="text-xs text-slate-300">Fabricante / EEM:</div>
-          <div className="mt-2 p-1 h-16 text-md font-light  text-slate-400">{eje.fabricante} / {eje.EEM}</div>
+          <div className="mt-2 p-1 h-16 text-lg font-light  text-slate-400">{eje.fabricante} / {eje.EEM}</div>
       </div>
 
     {/* Div # 4 - Datos servicio*/}
-    <div className="rounded-md px-4 py-4 border border-slate-500 h-[12rem]">
-        <div className="text-xs text-slate-300">Servicio:</div>
+    <div className="rounded-md px-4 py-2 border border-slate-500 h-[12rem]">
+        <div className="text-slate-300">Servicio:</div>
         <div className = 'flex justify-around mt-2 p-0.5 rounded-full border border-slate-500'>
           {eje.en_servicio?
               (<BoltIcon className="w-6 h-6 mx-auto text-green-500"/>)
@@ -42,12 +45,12 @@ export default function FichaEje ({eje}){
         <div className="py-1 h-10 overflow-hidden text-md font-light  text-slate-400 ">{eje.fecha_fab}</div>
 
         <div className="text-xs text-slate-300">Observaciones:</div>
-        <div className="py-1 h-10 overflow-hidden text-sm font-light  text-slate-400">{eje.observaciones_servicio}</div> 
+        <div className="py-1 h-6 overflow-hidden text-sm font-light  text-slate-400">{eje.observaciones_servicio}</div> 
     </div>
 
     {/* Div # 5 - datos Circulación*/}
-    <div className="rounded-md px-4 py-4 border border-slate-500 h-[12rem]">
-        <div className="text-xs text-slate-300">Circulación:</div>
+    <div className="rounded-md px-4 py-2 border border-slate-500 h-[12rem]">
+        <div className="text-slate-300">Circulación:</div>
         <div className = 'flex justify-evenly mt-2 p-0.5 rounded-full border border-slate-500'>
         {eje.en_circulacion?
               (<PlayIcon className="w-6 h-6 mx-auto text-green-500"/>)
@@ -60,7 +63,7 @@ export default function FichaEje ({eje}){
         : (<BellAlertIcon className="w-6 h-6 mx-auto text-slate-500"/>)}
         </div>
         <div className="mt-3 text-xs text-slate-300">KM realizados:</div>
-        <div className="py-1 h-10 text-md font-light  text-slate-400 overflow-hidden">{Math.round(eje.km_totales).toLocaleString('fr')} km</div>
+        <div className="py-1 h-10 text-lg font-light  text-slate-400 overflow-hidden">{Math.round(eje.km_totales).toLocaleString('fr')} km</div>
         <div className='text-xs  text-slate-300'>Temp. ruedas:</div>
         <div className="mt-1 flex justify-between">
           <span 
@@ -78,7 +81,7 @@ export default function FichaEje ({eje}){
                 'text-pink-700': (eje.tempa>(60)&&eje.tempa<=(70)),
               },
             )}>
-              A: {eje.tempa.toFixed(2)}º
+             A:{eje.tempa.toFixed(1)}º
             </span>
           <span className={clsx('text-md font-light',
               {
@@ -94,28 +97,28 @@ export default function FichaEje ({eje}){
                 'text-pink-700': (eje.tempb>(60)&&eje.tempa<=(70)),
               },
             )}>
-              B: {eje.tempb.toFixed(2)}º
+            B:{eje.tempb.toFixed(1)}º
             </span>
         </div>
     </div>
 
     {/* Div # 6 - cambios*/}
     <div className="rounded-md px-4 border border-slate-500 h-[12rem]">
-      <div className="mt-4 text-xs text-slate-300">Cambios:</div>
+      <div className="mt-2 text-slate-300">Cambios:</div>
       <div className = 'flex justify-evenly mt-2 p-0.5 rounded-full border border-slate-500'>
         {eje.alarma_cambio?
           (<BellAlertIcon className="w-6 h-6 mx-auto text-red-500"/>)
         : (<BellAlertIcon className="w-6 h-6 mx-auto text-slate-500"/>)}
       </div>
-      <div className="mt-6 text-xs text-slate-300">Total cambios realizados:</div>
-      <div className="py-1 h-10 overflow-hidden text-md font-light  text-slate-400 ">{eje.num_cambios}</div> 
+      <div className="mt-4 text-xs text-slate-300">Cambios realizados:</div>
+      <div className="py-1 h-10 overflow-hidden text-lg font-light  text-slate-400 ">{eje.num_cambios}</div> 
 
     </div>
     
     {/* Div # 7 - datos Mantenimiento*/}
     <div className="rounded-md px-4 border border-slate-500 h-[12rem]">
       <div className = 'flex justify-between'>
-        <div className="mt-4 text-xs text-slate-300">Mantenimiento:</div>
+        <div className="mt-2 text-slate-300">Mantenimiento:</div>
         <Link className="mt-2 flex justify-between text-lg font-extralight text-slate-400" href = '/Ejes'> 
           <ArrowTopRightOnSquareIcon className="w-6 h-5"/>
         </Link>

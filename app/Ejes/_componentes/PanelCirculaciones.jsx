@@ -14,7 +14,6 @@ export default function PanelCirculaciones ({circulaciones}) {
     return null;
   }
   return(
-
     <div className="mt-6 space-y-2 2xl:flex 2xl:space-x-4 2xl:h-[40rem]">
     
       <MapaCirculaciones

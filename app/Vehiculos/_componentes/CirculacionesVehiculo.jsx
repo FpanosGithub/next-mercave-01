@@ -14,6 +14,10 @@ async function getCirculaciones(id) {
 export default async function CirculacionesVehiculo ({id_vehiculo}){
   const circulaciones = await getCirculaciones(id_vehiculo);
   return(
+    <>
+    {/* Título Ficha */}
+    <div className='text-lg text-gray-400 mt-6'>Últimas Circulaciones Vehículo</div>
     <PanelCirculaciones circulaciones = {circulaciones}/>
+    </>
   )
 }

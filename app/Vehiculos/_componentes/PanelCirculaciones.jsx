@@ -15,7 +15,7 @@ export default function PanelCirculaciones ({circulaciones}) {
   }
   return(
 
-    <div className="mt-6 space-y-2 2xl:flex 2xl:space-x-4 2xl:h-[40rem]">
+    <div className="mt-2 space-y-2 2xl:flex 2xl:space-x-4 2xl:h-[40rem]">
     
       <MapaCirculaciones
         circulaciones = {circulaciones} 
