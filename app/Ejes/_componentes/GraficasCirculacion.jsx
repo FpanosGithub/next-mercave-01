@@ -38,8 +38,8 @@ export default function GraficasCirculacion ({circulacion}){
       height = {200} />
     <CurvaAceleraciones
       titulo = 'Acel. medias en eje Y'
-      color_a = 'orange'
-      color_b = 'green'
+      color_a = 'pink'
+      color_b = 'cyan'
       datos = {eventos.aymed} 
       lim_max = {10} 
       height = {200} />
@@ -52,8 +52,8 @@ export default function GraficasCirculacion ({circulacion}){
       height = {200} />  
     <CurvaAceleraciones
       titulo = 'Acel. medias en eje X'
-      color_a = 'orange'
-      color_b = 'green'
+      color_a = 'blue'
+      color_b = 'orange'
       datos = {eventos.axmed} 
       lim_max = {10} 
       height = {200} />  

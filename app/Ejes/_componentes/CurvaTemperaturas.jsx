@@ -26,7 +26,7 @@ function CustomTooltip({ payload, label, active }) {
 
 function CurvaTemperaturas ({datos, height}){
     return(
-          <div className='py-4 bg-slate-900'>
+          <div className='py-4 bg-slate-900 rounded-xl'>
             <div className='text-gray-400 pl-4'>Temperaturas</div>
             <ResponsiveContainer height={height} className = 'text-xs text-blue-500'>
               <LineChart 

@@ -25,7 +25,7 @@ function CustomTooltip({ payload, label, active }) {
 
 function CurvaAceleraciones ({titulo, color_a, color_b, datos, lim_max, height}){
     return(
-      <div className='py-4 bg-slate-900'>
+      <div className='py-4 bg-slate-900 rounded-xl'>
         <div className='text-gray-400 pl-4'>{titulo}</div>
         <ResponsiveContainer height={height} className = 'text-xs text-blue-500'>
           <LineChart 

@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import FichaEje from '../_componentes/FichaEje';
 import CirculacionesEje from '../_componentes/CirculacionesEje';
+import CambiosEje from '../_componentes/CambiosEje';
 
 async function getEje(id) {
   const res = await fetch(`https://mercave-2301.azurewebsites.net/vehiculos/ejes/${id}`)
@@ -36,6 +37,9 @@ export default async function Page({params}) {
     <FichaEje eje = {eje}/>
     <Suspense fallback = {<p>cargando últimas circulaciones del eje: {eje.id}...........</p>}>
       <CirculacionesEje id_eje = {eje.id}/>
+    </Suspense>
+    <Suspense fallback = {<p>cargando últimas circulaciones del eje: {eje.id}...........</p>}>
+      <CambiosEje id_eje = {eje.id}/>
     </Suspense>
     </>
   )
