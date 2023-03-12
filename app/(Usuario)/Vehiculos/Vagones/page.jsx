@@ -1,4 +1,3 @@
-import {url} from '@/lib/url'
 import PanelFlota from '../_componentes/PanelFlota';
 
 async function getVehiculos() {
